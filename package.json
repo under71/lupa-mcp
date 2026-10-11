@@ -1,6 +1,6 @@
 {
   "name": "lupa-mcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "MCP server for Lupa — search your Mac's files by name and document content (PDF, DOCX, XLSX, PPTX, HWP, scanned PDFs via OCR). Korean-aware, ~30ms, fully local.",
   "type": "module",
   "bin": {

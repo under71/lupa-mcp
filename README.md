@@ -110,6 +110,30 @@ Korean and Chinese prefixes work too (`종류:` `크기:` `날짜:` / `种类:` 
 Korean is handled properly — partial words inside compounds and attached particles both
 match, which is what Spotlight gets wrong.
 
+## Audit log
+
+Every tool call is recorded on your Mac so you can see what an agent searched for and which files it was shown:
+
+```
+~/Library/Logs/Lupa/mcp-audit.jsonl
+```
+
+Each line has the time, the calling client (e.g. Claude Code, Cursor), the tool, the query or path, the paths
+returned, and whether it succeeded. **Snippets and document text are not logged.** The file is readable only by you
+(0600) and never leaves the Mac.
+
+Lines are hash-chained: each entry includes the hash of the previous one, so editing or removing a line is
+detected. This makes the log *tamper-evident*, not tamper-proof — deleting the whole file and starting over is
+still possible.
+
+```bash
+npx lupa-mcp audit            # last 20 calls
+npx lupa-mcp audit -n 100
+npx lupa-mcp audit --verify   # exit 0 if the chain is intact, 1 if a line was changed or removed
+```
+
+Turn it off with `LUPA_MCP_AUDIT=off`, or move it with `LUPA_MCP_AUDIT_PATH=/path/to/file.jsonl`.
+
 ## Privacy
 
 Everything runs on your Mac. Lupa has no network code at all, and this server only
