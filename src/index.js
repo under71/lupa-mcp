@@ -47,7 +47,7 @@ const QUERY_SYNTAX = `Query syntax (combine freely; more conditions = sharper re
   .pdf  *.mp3  report*     extension / wildcard
   kind:document    kind filter — document, pdf, hwp, image, video, audio, code, archive, app
   size:>10mb  size:<1mb
-  date:today  date:week  date:month  date:7d  date:2026-06
+  date:today  date:week  date:month  date:7일 (= last 7 days)  date:2026-06
 Korean and Chinese prefixes work too (종류:, 크기:, 날짜: / 种类:, 大小:, 日期:).
 Korean is handled properly: partial words inside compounds and attached particles
 ("보호정책" finds "정보보호정책서.hwp"; "심사보고서를" finds "심사보고서").`;
@@ -185,6 +185,11 @@ server.registerTool(
     const header =
       `${path}\n${data.chars} of ${data.total_chars} indexed characters` +
       (truncated ? " (truncated — raise max_chars for more)" : "") +
+      // 색인 자체가 문서 앞부분만 가진 경우(Lupa 2.0.2+가 알려준다). max_chars를 올려도 더 나오지 않는다.
+      (data.index_truncated
+        ? `\nOnly the first ${data.index_limit} characters of this document are indexed; ` +
+          "the original file is longer. Do not summarise it as the whole document — say you read the beginning."
+        : "") +
       "\n\n";
     return { chars: data.chars, response: { content: [{ type: "text", text: header + (data.content || "") }] } };
     }, (out) => ({ chars: out.chars }))
