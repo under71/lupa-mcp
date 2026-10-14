@@ -45,7 +45,7 @@ const QUERY_SYNTAX = `Query syntax (combine freely; more conditions = sharper re
   -word            exclude
   "exact phrase"   literal match, no stemming
   .pdf  *.mp3  report*     extension / wildcard
-  kind:document    kind filter — document, pdf, hwp, image, video, audio, code, archive, app
+  kind:document    kind filter — document, pdf, hwp, presentation, image, video, audio, code, archive, app
   size:>10mb  size:<1mb
   date:today  date:week  date:month  date:7d  date:2026-06
 Korean and Chinese prefixes work too (종류:, 크기:, 날짜: / 种类:, 大小:, 日期:).
