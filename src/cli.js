@@ -74,7 +74,7 @@ export class SandboxedLaunchError extends Error {
     super(
       "lupa-search가 샌드박스 안에서 실행돼 macOS가 기동을 막았습니다(종료 코드 133). " +
         "에이전트의 셸 명령으로 띄우지 말고, 에이전트의 MCP 서버 설정에 Lupa를 등록하세요 " +
-        "(Aside: 설정 ▸ Plugins & MCPs / Codex: codex mcp add lupa -- npx -y github:paeyoungpark-web/lupa-mcp). " +
+        "(Aside: 설정 ▸ Plugins & MCPs / Codex: codex mcp add lupa -- npx -y github:under71/lupa-mcp). " +
         "Lupa 2.0.1부터는 앱의 설정 ▸ 일반 ▸ 'Aside에 연결…'로도 등록할 수 있습니다."
     );
     this.name = "SandboxedLaunchError";

@@ -3,7 +3,7 @@
   "name": "io.github.paeyoungpark-web/lupa-mcp",
   "description": "Search your Mac's files by name and by text inside documents. Local index, Korean-aware.",
   "repository": {
-    "url": "https://github.com/paeyoungpark-web/lupa-mcp",
+    "url": "https://github.com/under71/lupa-mcp",
     "source": "github"
   },
   "version": "0.2.0",
