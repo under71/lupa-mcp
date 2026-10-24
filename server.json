@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.paeyoungpark-web/lupa-mcp",
+  "name": "io.github.under71/lupa-mcp",
   "description": "Search your Mac's files by name and by text inside documents. Local index, Korean-aware.",
   "repository": {
     "url": "https://github.com/under71/lupa-mcp",
     "source": "github"
   },
-  "version": "0.2.0",
+  "version": "0.3.1",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "lupa-mcp",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "transport": {
         "type": "stdio"
       },
