@@ -141,6 +141,12 @@ server.registerTool(
       results,
     };
     if (data.total_matches_capped) summary.total_matches_capped = true;
+    // Lupa 2.0.2+가 알려준다: 해석 못 한 조건은 결과를 거르지 않았다
+    if (data.ignored_conditions?.length) {
+      summary.ignored_conditions = data.ignored_conditions;
+      summary.warning = "These conditions were not understood and were NOT applied: " +
+        data.ignored_conditions.join(", ") + ". Results are unfiltered by them — rephrase (see syntax) before relying on them.";
+    }
     if (results.length === 0) {
       summary.hint =
         "No matches. Try fewer or shorter words, drop filters, or check that the " +
