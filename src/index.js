@@ -45,9 +45,9 @@ const QUERY_SYNTAX = `Query syntax (combine freely; more conditions = sharper re
   -word            exclude
   "exact phrase"   literal match, no stemming
   .pdf  *.mp3  report*     extension / wildcard
-  kind:document    kind filter — document, pdf, hwp, image, video, audio, code, archive, app
+  kind:document    kind filter — document, pdf, hwp, presentation (ppt/pptx/Keynote), image, video, audio, code, archive, app
   size:>10mb  size:<1mb
-  date:today  date:week  date:month  date:7일 (= last 7 days)  date:2026-06
+  date:today  date:week  date:month  date:7d  date:7일 (= last 7 days)  date:2026-06
 Korean and Chinese prefixes work too (종류:, 크기:, 날짜: / 种类:, 大小:, 日期:).
 Korean is handled properly: partial words inside compounds and attached particles
 ("보호정책" finds "정보보호정책서.hwp"; "심사보고서를" finds "심사보고서").`;
